@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mermaid Example - Load page (SPA)</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true
+    });
+  </script>
+</head>
+<body>
+  <h1>Mermaid Example - Load page (SPA)</h1>
+  <div id="myDiagram" class="mermaid">
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: 201 created
+    deactivate server
+
+    Note right of browser: The browser (via the event listener) rerenders the note list when sending the GET request.
+  </div>
+</body>
+</html>
